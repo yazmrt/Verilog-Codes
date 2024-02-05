@@ -62,4 +62,5 @@ case (state) begin
 endcase
 end
 end
+assign result_o = temp;
 endmodule
