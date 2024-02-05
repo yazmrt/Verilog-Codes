@@ -41,7 +41,7 @@ case (state) begin
     end
     ACTION_S: begin
         if (temp[0] == q_eksi1) begin
-           temp <<< 1;
+           temp >>> 1;
            q_eksi1 <= temp[0];
         end
         else if ({temp[0], q_eksi1} == 2'b10) begin
