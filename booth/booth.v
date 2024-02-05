@@ -18,14 +18,14 @@ reg state;
 reg [2:0] count;
 reg [7:0] temp;
 
-initial begin 
+always @(posedge clk or negedge rst) begin
+if (!rst) begin
     q_eksi1 <= 1'b0;
     count <= 3'b000;
     acc <= 4'b0000;
     temp <= 7'd0;
 end
-
-always @(posedge clk) begin
+else begin
 case (state) begin
     IDLE_S: begin
         q_eksi1 <= 1'b0;
@@ -60,6 +60,6 @@ case (state) begin
     end
     default: IDLE_S;
 endcase
-
 end
-
+end
+endmodule
